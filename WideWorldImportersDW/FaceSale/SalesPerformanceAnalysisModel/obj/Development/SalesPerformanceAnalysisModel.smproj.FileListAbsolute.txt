@@ -1,0 +1,8 @@
+C:\Users\adres\Desktop\skole\7. semester\BUI\BUI\WideWorldImportersDW\SalesPerformanceAnalysisModel\bin\Model.asdatabase
+C:\Users\adres\Desktop\skole\7. semester\BUI\BUI\WideWorldImportersDW\SalesPerformanceAnalysisModel\bin\Model.deploymenttargets
+C:\Users\adres\Desktop\skole\7. semester\BUI\BUI\WideWorldImportersDW\SalesPerformanceAnalysisModel\bin\Model.deploymentoptions
+C:\Users\adres\Desktop\skole\7. semester\BUI\BUI\WideWorldImportersDW\SalesPerformanceAnalysisModel\obj\Development\SalesPerformanceAnalysisModel.smproj.AssemblyReference.cache
+C:\Users\adres\Desktop\skole\7. semester\BUI\BUI\WideWorldImportersDW\SalesPerformanceAnalysisModel\obj\Development\SalesPerformanceAnalysisModel.smproj.CoreCompileInputs.cache
+C:\Users\adres\Desktop\skole\7. semester\BUI\BUI\WideWorldImportersDW\SalesPerformanceAnalysisModel\obj\Development\Model.asdatabase
+C:\Users\adres\Desktop\skole\7. semester\BUI\BUI\WideWorldImportersDW\SalesPerformanceAnalysisModel\obj\Development\Model.deploymentoptions
+C:\Users\adres\Desktop\skole\7. semester\BUI\BUI\WideWorldImportersDW\SalesPerformanceAnalysisModel\obj\Development\Model.deploymenttargets

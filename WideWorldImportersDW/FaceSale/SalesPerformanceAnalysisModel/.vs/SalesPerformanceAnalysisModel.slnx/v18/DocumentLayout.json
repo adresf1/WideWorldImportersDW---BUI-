@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\SalesPerformanceAnalysisModel\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8CE414BB-95B2-4C99-9E03-51BA72086E22}|SalesPerformanceAnalysisModel.smproj|C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\SalesPerformanceAnalysisModel\\Model.bim||{9EE154FA-5389-414A-9FA1-1D9F0221267D}",
+      "RelativeMoniker": "D:0:0:{8CE414BB-95B2-4C99-9E03-51BA72086E22}|SalesPerformanceAnalysisModel.smproj|solutionrelative:Model.bim||{9EE154FA-5389-414A-9FA1-1D9F0221267D}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 261,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 139,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Model.bim",
+              "DocumentMoniker": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\SalesPerformanceAnalysisModel\\Model.bim",
+              "RelativeDocumentMoniker": "Model.bim",
+              "ToolTip": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\SalesPerformanceAnalysisModel\\Model.bim",
+              "RelativeToolTip": "Model.bim",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-11-09T22:28:17.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{772fae72-e21b-4edc-bc58-a28ba116be9c}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

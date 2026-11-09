@@ -1,0 +1,8 @@
+C:\Users\adres\source\repos\WideWorldImportersDW\bin\Model.asdatabase
+C:\Users\adres\source\repos\WideWorldImportersDW\bin\Model.deploymenttargets
+C:\Users\adres\source\repos\WideWorldImportersDW\bin\Model.deploymentoptions
+C:\Users\adres\source\repos\WideWorldImportersDW\obj\Development\WideWorldImportersDW.smproj.AssemblyReference.cache
+C:\Users\adres\source\repos\WideWorldImportersDW\obj\Development\WideWorldImportersDW.smproj.CoreCompileInputs.cache
+C:\Users\adres\source\repos\WideWorldImportersDW\obj\Development\Model.asdatabase
+C:\Users\adres\source\repos\WideWorldImportersDW\obj\Development\Model.deploymentoptions
+C:\Users\adres\source\repos\WideWorldImportersDW\obj\Development\Model.deploymenttargets
