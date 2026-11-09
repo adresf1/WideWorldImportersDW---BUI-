@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\SalesPerformanceAnalysisModel\\",
+  "WorkspaceRootPath": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\FaceSale\\SalesPerformanceAnalysisModel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8CE414BB-95B2-4C99-9E03-51BA72086E22}|SalesPerformanceAnalysisModel.smproj|C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\SalesPerformanceAnalysisModel\\Model.bim||{9EE154FA-5389-414A-9FA1-1D9F0221267D}",
+      "AbsoluteMoniker": "D:0:0:{8CE414BB-95B2-4C99-9E03-51BA72086E22}|SalesPerformanceAnalysisModel.smproj|C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\FaceSale\\SalesPerformanceAnalysisModel\\Model.bim||{9EE154FA-5389-414A-9FA1-1D9F0221267D}",
       "RelativeMoniker": "D:0:0:{8CE414BB-95B2-4C99-9E03-51BA72086E22}|SalesPerformanceAnalysisModel.smproj|solutionrelative:Model.bim||{9EE154FA-5389-414A-9FA1-1D9F0221267D}"
     }
   ],
@@ -34,9 +34,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Model.bim",
-              "DocumentMoniker": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\SalesPerformanceAnalysisModel\\Model.bim",
+              "DocumentMoniker": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\FaceSale\\SalesPerformanceAnalysisModel\\Model.bim",
               "RelativeDocumentMoniker": "Model.bim",
-              "ToolTip": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\SalesPerformanceAnalysisModel\\Model.bim",
+              "ToolTip": "C:\\Users\\adres\\Desktop\\skole\\7. semester\\BUI\\BUI\\WideWorldImportersDW\\FaceSale\\SalesPerformanceAnalysisModel\\Model.bim",
               "RelativeToolTip": "Model.bim",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-11-09T22:28:17.611Z",
