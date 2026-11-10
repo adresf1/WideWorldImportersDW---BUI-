@@ -1,0 +1,309 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "da-DK",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/localhost;WideWorldImportersDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "localhost",
+            "database": "WideWorldImportersDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "Username": "BARISCNKL\\Baris Cankül",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "StockMart vDimStockItem",
+        "columns": [
+          {
+            "name": "StockItemKey",
+            "dataType": "int64",
+            "sourceColumn": "StockItemKey"
+          },
+          {
+            "name": "WWIStockItemID",
+            "dataType": "int64",
+            "sourceColumn": "WWIStockItemID"
+          },
+          {
+            "name": "StockItem",
+            "dataType": "string",
+            "sourceColumn": "StockItem"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color"
+          },
+          {
+            "name": "Brand",
+            "dataType": "string",
+            "sourceColumn": "Brand"
+          },
+          {
+            "name": "Size",
+            "dataType": "string",
+            "sourceColumn": "Size"
+          },
+          {
+            "name": "SellingPackage",
+            "dataType": "string",
+            "sourceColumn": "SellingPackage"
+          },
+          {
+            "name": "BuyingPackage",
+            "dataType": "string",
+            "sourceColumn": "BuyingPackage"
+          },
+          {
+            "name": "QuantityPerOuter",
+            "dataType": "int64",
+            "sourceColumn": "QuantityPerOuter"
+          },
+          {
+            "name": "LeadTimeDays",
+            "dataType": "int64",
+            "sourceColumn": "LeadTimeDays"
+          },
+          {
+            "name": "IsChillerStock",
+            "dataType": "boolean",
+            "sourceColumn": "IsChillerStock"
+          },
+          {
+            "name": "TaxRate",
+            "dataType": "double",
+            "sourceColumn": "TaxRate"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "double",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "RecommendedRetailPrice",
+            "dataType": "double",
+            "sourceColumn": "RecommendedRetailPrice"
+          },
+          {
+            "name": "TypicalWeightPerUnit",
+            "dataType": "double",
+            "sourceColumn": "TypicalWeightPerUnit"
+          },
+          {
+            "name": "ValidFrom",
+            "dataType": "dateTime",
+            "sourceColumn": "ValidFrom"
+          },
+          {
+            "name": "ValidTo",
+            "dataType": "dateTime",
+            "sourceColumn": "ValidTo"
+          },
+          {
+            "type": "calculated",
+            "name": "StorageType",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "    IF ( 'StockMart vDimStockItem'[IsChillerStock], \"Chiller\", \"Dry\" )"
+          },
+          {
+            "type": "calculated",
+            "name": "PriceBrand",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "   SWITCH ( TRUE (), 'StockMart vDimStockItem'[UnitPrice] >= 100, \"High\", 'StockMart vDimStockItem'[UnitPrice] >= 20, \"Medium\", \"Low\" )"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;WideWorldImportersDW\",",
+                "    StockMart_vDimStockItem = Source{[Schema=\"StockMart\",Item=\"vDimStockItem\"]}[Data]",
+                "in",
+                "    StockMart_vDimStockItem"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Stock Item Hierarchy",
+            "levels": [
+              {
+                "name": "StorageType",
+                "ordinal": 0,
+                "column": "StorageType"
+              },
+              {
+                "name": "PriceBrand",
+                "ordinal": 1,
+                "column": "PriceBrand"
+              },
+              {
+                "name": "StockItem",
+                "ordinal": 2,
+                "column": "StockItem"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "StockMart vFactStockHolding",
+        "columns": [
+          {
+            "name": "StockHoldingKey",
+            "dataType": "int64",
+            "sourceColumn": "StockHoldingKey"
+          },
+          {
+            "name": "StockItemKey",
+            "dataType": "int64",
+            "sourceColumn": "StockItemKey"
+          },
+          {
+            "name": "QuantityOnHand",
+            "dataType": "int64",
+            "sourceColumn": "QuantityOnHand"
+          },
+          {
+            "name": "BinLocation",
+            "dataType": "string",
+            "sourceColumn": "BinLocation"
+          },
+          {
+            "name": "LastStocktakeQuantity",
+            "dataType": "int64",
+            "sourceColumn": "LastStocktakeQuantity"
+          },
+          {
+            "name": "LastCostPrice",
+            "dataType": "double",
+            "sourceColumn": "LastCostPrice"
+          },
+          {
+            "name": "ReorderLevel",
+            "dataType": "int64",
+            "sourceColumn": "ReorderLevel"
+          },
+          {
+            "name": "TargetStockLevel",
+            "dataType": "int64",
+            "sourceColumn": "TargetStockLevel"
+          },
+          {
+            "type": "calculated",
+            "name": "NeedsReorder",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "   IF ( 'StockMart vFactStockHolding'[QuantityOnHand] <= 'StockMart vFactStockHolding'[ReorderLevel], \"Yes\", \"No\" )"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;WideWorldImportersDW\",",
+                "    StockMart_vFactStockHolding = Source{[Schema=\"StockMart\",Item=\"vFactStockHolding\"]}[Data]",
+                "in",
+                "    StockMart_vFactStockHolding"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Quantity On Hand",
+            "expression": " SUM ( 'StockMart vFactStockHolding'[QuantityOnHand] )"
+          },
+          {
+            "name": "Total Target Stock Level",
+            "expression": " SUM ( 'StockMart vFactStockHolding'[TargetStockLevel] )"
+          },
+          {
+            "name": "Stock Value",
+            "expression": " SUMX ( 'StockMart vFactStockHolding', 'StockMart vFactStockHolding'[QuantityOnHand] * 'StockMart vFactStockHolding'[LastCostPrice] )"
+          },
+          {
+            "name": "Items Needing Reorder",
+            "expression": " COUNTROWS ( FILTER ( 'StockMart vFactStockHolding', 'StockMart vFactStockHolding'[QuantityOnHand] <= 'StockMart vFactStockHolding'[ReorderLevel] ) )"
+          },
+          {
+            "name": "Items Out Of Stock",
+            "expression": " COUNTROWS ( FILTER ( 'StockMart vFactStockHolding', 'StockMart vFactStockHolding'[QuantityOnHand] <= 0 ) )"
+          },
+          {
+            "name": "Shortage To Target",
+            "expression": " SUMX ( 'StockMart vFactStockHolding', MAX ( 0, 'StockMart vFactStockHolding'[TargetStockLevel] - 'StockMart vFactStockHolding'[QuantityOnHand] ) )"
+          },
+          {
+            "name": "Overstock Quantity",
+            "expression": " SUMX ( 'StockMart vFactStockHolding', MAX ( 0, 'StockMart vFactStockHolding'[QuantityOnHand] - 'StockMart vFactStockHolding'[TargetStockLevel] ) )"
+          },
+          {
+            "name": "Items Overstocked",
+            "expression": " COUNTROWS ( FILTER ( 'StockMart vFactStockHolding', 'StockMart vFactStockHolding'[QuantityOnHand] > 'StockMart vFactStockHolding'[TargetStockLevel] ) )"
+          },
+          {
+            "name": "Margin Per Unit",
+            "expression": " AVERAGEX ( 'StockMart vFactStockHolding', RELATED ( 'StockMart vDimStockItem'[UnitPrice] ) - 'StockMart vFactStockHolding'[LastCostPrice] )"
+          },
+          {
+            "name": "Margin %",
+            "expression": " DIVIDE ( [Margin Per Unit], AVERAGEX ( 'StockMart vFactStockHolding', RELATED ( 'StockMart vDimStockItem'[UnitPrice] ) ) )"
+          },
+          {
+            "name": "High Value Low Stock Items",
+            "expression": " CALCULATE ( [Items Needing Reorder], 'StockMart vDimStockItem'[Price Band] = \"High\" )"
+          },
+          {
+            "name": "Chiller Stock Value",
+            "expression": " CALCULATE ( [Stock Value], 'StockMart vDimStockItem'[IsChillerStock] = TRUE () )"
+          },
+          {
+            "name": "Chiller Share %",
+            "expression": " DIVIDE ( [Chiller Stock Value], [Stock Value] )"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "f572de24-19f4-45ec-b80a-a8b52ece186b",
+        "fromTable": "StockMart vFactStockHolding",
+        "fromColumn": "StockItemKey",
+        "toTable": "StockMart vDimStockItem",
+        "toColumn": "StockItemKey"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
