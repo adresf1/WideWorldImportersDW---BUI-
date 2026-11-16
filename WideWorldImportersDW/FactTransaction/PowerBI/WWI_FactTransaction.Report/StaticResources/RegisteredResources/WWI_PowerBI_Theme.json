@@ -1,0 +1,24 @@
+{
+  "name": "WWI Financial Intelligence",
+  "dataColors": [
+    "#17365D",
+    "#4478A4",
+    "#7A9DBC",
+    "#1F8979",
+    "#E0A84D",
+    "#9EAFC0",
+    "#53758C",
+    "#B16D5C"
+  ],
+  "foreground": "#17365D",
+  "background": "#FFFFFF",
+  "tableAccent": "#17365D",
+  "good": "#1F8979",
+  "neutral": "#E0A84D",
+  "bad": "#B85353",
+  "firstLevelElements": "#17365D",
+  "secondLevelElements": "#60748D",
+  "thirdLevelElements": "#DEE6EE",
+  "fourthLevelElements": "#8493A5",
+  "secondaryBackground": "#F2F5F8"
+}

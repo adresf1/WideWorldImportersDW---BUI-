@@ -1,0 +1,5 @@
+{
+  "version": "2.0",
+  "connectionString": "Data Source=localhost:60331;Initial Catalog=db;Cube=Model",
+  "connectionType": "analysisServicesDatabaseLive"
+}

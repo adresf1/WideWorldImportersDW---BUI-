@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "WWI_FactTransaction"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8870158e-ff9e-4b8f-88e4-da867bd261c0"
+  }
+}
