@@ -1,0 +1,602 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "da-DK",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/localhost;WideWorldImportersDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "localhost",
+            "database": "WideWorldImportersDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "Username": "MAKINE\\alper",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "TransactionMart DimCustomer",
+        "columns": [
+          {
+            "name": "Customer Key",
+            "dataType": "int64",
+            "sourceColumn": "Customer Key"
+          },
+          {
+            "name": "WWI Customer ID",
+            "dataType": "int64",
+            "sourceColumn": "WWI Customer ID"
+          },
+          {
+            "name": "Customer",
+            "dataType": "string",
+            "sourceColumn": "Customer"
+          },
+          {
+            "name": "Bill To Customer",
+            "dataType": "string",
+            "sourceColumn": "Bill To Customer"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category"
+          },
+          {
+            "name": "Buying Group",
+            "dataType": "string",
+            "sourceColumn": "Buying Group"
+          },
+          {
+            "name": "Primary Contact",
+            "dataType": "string",
+            "sourceColumn": "Primary Contact"
+          },
+          {
+            "name": "Postal Code",
+            "dataType": "string",
+            "sourceColumn": "Postal Code"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;WideWorldImportersDW\",",
+                "    TransactionMart_DimCustomer = Source{[Schema=\"TransactionMart\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    TransactionMart_DimCustomer"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Customer Hierarchy",
+            "levels": [
+              {
+                "name": "Buying Group",
+                "ordinal": 0,
+                "column": "Buying Group"
+              },
+              {
+                "name": "Category",
+                "ordinal": 1,
+                "column": "Category"
+              },
+              {
+                "name": "Customer",
+                "ordinal": 2,
+                "column": "Customer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TransactionMart DimDate",
+        "columns": [
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Day Number",
+            "dataType": "int64",
+            "sourceColumn": "Day Number"
+          },
+          {
+            "name": "Day",
+            "dataType": "string",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "Short Month",
+            "dataType": "string",
+            "sourceColumn": "Short Month"
+          },
+          {
+            "name": "Calendar Month Number",
+            "dataType": "int64",
+            "sourceColumn": "Calendar Month Number"
+          },
+          {
+            "name": "Calendar Month Label",
+            "dataType": "string",
+            "sourceColumn": "Calendar Month Label"
+          },
+          {
+            "name": "Calendar Year",
+            "dataType": "int64",
+            "sourceColumn": "Calendar Year"
+          },
+          {
+            "name": "Calendar Year Label",
+            "dataType": "string",
+            "sourceColumn": "Calendar Year Label"
+          },
+          {
+            "name": "Fiscal Month Number",
+            "dataType": "int64",
+            "sourceColumn": "Fiscal Month Number"
+          },
+          {
+            "name": "Fiscal Month Label",
+            "dataType": "string",
+            "sourceColumn": "Fiscal Month Label"
+          },
+          {
+            "name": "Fiscal Year",
+            "dataType": "int64",
+            "sourceColumn": "Fiscal Year"
+          },
+          {
+            "name": "Fiscal Year Label",
+            "dataType": "string",
+            "sourceColumn": "Fiscal Year Label"
+          },
+          {
+            "name": "ISO Week Number",
+            "dataType": "int64",
+            "sourceColumn": "ISO Week Number"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;WideWorldImportersDW\",",
+                "    TransactionMart_DimDate = Source{[Schema=\"TransactionMart\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    TransactionMart_DimDate"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date hierarchy",
+            "levels": [
+              {
+                "name": "Calendar Year",
+                "ordinal": 0,
+                "column": "Calendar Year"
+              },
+              {
+                "name": "Month",
+                "ordinal": 1,
+                "column": "Month"
+              },
+              {
+                "name": "Day",
+                "ordinal": 2,
+                "column": "Day"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TransactionMart DimPaymentMethod",
+        "columns": [
+          {
+            "name": "Payment Method Key",
+            "dataType": "int64",
+            "sourceColumn": "Payment Method Key"
+          },
+          {
+            "name": "WWI Payment Method ID",
+            "dataType": "int64",
+            "sourceColumn": "WWI Payment Method ID"
+          },
+          {
+            "name": "Payment Method",
+            "dataType": "string",
+            "sourceColumn": "Payment Method"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;WideWorldImportersDW\",",
+                "    TransactionMart_DimPaymentMethod = Source{[Schema=\"TransactionMart\",Item=\"DimPaymentMethod\"]}[Data]",
+                "in",
+                "    TransactionMart_DimPaymentMethod"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "TransactionMart DimSupplier",
+        "columns": [
+          {
+            "name": "Supplier Key",
+            "dataType": "int64",
+            "sourceColumn": "Supplier Key"
+          },
+          {
+            "name": "WWI Supplier ID",
+            "dataType": "int64",
+            "sourceColumn": "WWI Supplier ID"
+          },
+          {
+            "name": "Supplier",
+            "dataType": "string",
+            "sourceColumn": "Supplier"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category"
+          },
+          {
+            "name": "Primary Contact",
+            "dataType": "string",
+            "sourceColumn": "Primary Contact"
+          },
+          {
+            "name": "Supplier Reference",
+            "dataType": "string",
+            "sourceColumn": "Supplier Reference"
+          },
+          {
+            "name": "Payment Days",
+            "dataType": "int64",
+            "sourceColumn": "Payment Days"
+          },
+          {
+            "name": "Postal Code",
+            "dataType": "string",
+            "sourceColumn": "Postal Code"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;WideWorldImportersDW\",",
+                "    TransactionMart_DimSupplier = Source{[Schema=\"TransactionMart\",Item=\"DimSupplier\"]}[Data]",
+                "in",
+                "    TransactionMart_DimSupplier"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Supplier Hierarchy",
+            "levels": [
+              {
+                "name": "Category",
+                "ordinal": 0,
+                "column": "Category"
+              },
+              {
+                "name": "Supplier",
+                "ordinal": 1,
+                "column": "Supplier"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TransactionMart DimTransactionType",
+        "columns": [
+          {
+            "name": "Transaction Type Key",
+            "dataType": "int64",
+            "sourceColumn": "Transaction Type Key"
+          },
+          {
+            "name": "WWI Transaction Type ID",
+            "dataType": "int64",
+            "sourceColumn": "WWI Transaction Type ID"
+          },
+          {
+            "name": "Transaction Type",
+            "dataType": "string",
+            "sourceColumn": "Transaction Type"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;WideWorldImportersDW\",",
+                "    TransactionMart_DimTransactionType = Source{[Schema=\"TransactionMart\",Item=\"DimTransactionType\"]}[Data]",
+                "in",
+                "    TransactionMart_DimTransactionType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "TransactionMart FactTransaction",
+        "columns": [
+          {
+            "name": "Transaction Key",
+            "dataType": "int64",
+            "sourceColumn": "Transaction Key"
+          },
+          {
+            "name": "Date Key",
+            "dataType": "dateTime",
+            "sourceColumn": "Date Key"
+          },
+          {
+            "name": "Customer Key",
+            "dataType": "int64",
+            "sourceColumn": "Customer Key"
+          },
+          {
+            "name": "Bill To Customer Key",
+            "dataType": "int64",
+            "sourceColumn": "Bill To Customer Key"
+          },
+          {
+            "name": "Supplier Key",
+            "dataType": "int64",
+            "sourceColumn": "Supplier Key"
+          },
+          {
+            "name": "Transaction Type Key",
+            "dataType": "int64",
+            "sourceColumn": "Transaction Type Key"
+          },
+          {
+            "name": "Payment Method Key",
+            "dataType": "int64",
+            "sourceColumn": "Payment Method Key"
+          },
+          {
+            "name": "WWI Customer Transaction ID",
+            "dataType": "int64",
+            "sourceColumn": "WWI Customer Transaction ID"
+          },
+          {
+            "name": "WWI Supplier Transaction ID",
+            "dataType": "int64",
+            "sourceColumn": "WWI Supplier Transaction ID"
+          },
+          {
+            "name": "WWI Invoice ID",
+            "dataType": "int64",
+            "sourceColumn": "WWI Invoice ID"
+          },
+          {
+            "name": "WWI Purchase Order ID",
+            "dataType": "int64",
+            "sourceColumn": "WWI Purchase Order ID"
+          },
+          {
+            "name": "Supplier Invoice Number",
+            "dataType": "string",
+            "sourceColumn": "Supplier Invoice Number"
+          },
+          {
+            "name": "Total Excluding Tax",
+            "dataType": "double",
+            "sourceColumn": "Total Excluding Tax"
+          },
+          {
+            "name": "Tax Amount",
+            "dataType": "double",
+            "sourceColumn": "Tax Amount"
+          },
+          {
+            "name": "Total Including Tax",
+            "dataType": "double",
+            "sourceColumn": "Total Including Tax"
+          },
+          {
+            "name": "Outstanding Balance",
+            "dataType": "double",
+            "sourceColumn": "Outstanding Balance"
+          },
+          {
+            "name": "Is Finalized",
+            "dataType": "boolean",
+            "sourceColumn": "Is Finalized"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;WideWorldImportersDW\",",
+                "    TransactionMart_FactTransaction = Source{[Schema=\"TransactionMart\",Item=\"FactTransaction\"]}[Data]",
+                "in",
+                "    TransactionMart_FactTransaction"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Customer Payments",
+            "expression": [
+              "",
+              "    -CALCULATE(",
+              "        SUM('TransactionMart FactTransaction'[Total Including Tax]),",
+              "        'TransactionMart DimTransactionType'[Transaction Type Key] = 3",
+              "    )"
+            ]
+          },
+          {
+            "name": "Customer Outstanding Balance",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM('TransactionMart FactTransaction'[Outstanding Balance]),",
+              "    'TransactionMart DimTransactionType'[Transaction Type Key] = 1,",
+              "    'TransactionMart FactTransaction'[Outstanding Balance] > 0",
+              ")"
+            ]
+          },
+          {
+            "name": "Total Outstanding Balance",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM('TransactionMart FactTransaction'[Outstanding Balance]),",
+              "    'TransactionMart FactTransaction'[Outstanding Balance] > 0",
+              ")"
+            ]
+          },
+          {
+            "name": "Payment Transaction Count",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNTROWS('TransactionMart FactTransaction'),",
+              "    'TransactionMart DimTransactionType'[Transaction Type Key]",
+              "        IN {3, 7}",
+              ")"
+            ]
+          },
+          {
+            "name": "Non-Finalized Customer Transactions",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNTROWS('TransactionMart FactTransaction'),",
+              "    'TransactionMart FactTransaction'[Is Finalized] = FALSE(),",
+              "    'TransactionMart DimTransactionType'[Transaction Type Key]",
+              "        IN {1, 2, 3, 4}",
+              ")"
+            ]
+          },
+          {
+            "name": "Total Supplier Payments",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM('TransactionMart FactTransaction'[Total Including Tax]),",
+              "    'TransactionMart DimTransactionType'[Transaction Type Key] = 7",
+              ") * -1"
+            ]
+          },
+          {
+            "name": "Supplier Outstanding Balance",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM('TransactionMart FactTransaction'[Outstanding Balance]),",
+              "    'TransactionMart DimTransactionType'[Transaction Type Key] = 5,",
+              "    'TransactionMart FactTransaction'[Outstanding Balance] > 0",
+              ")"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "c0a001d4-153a-42fe-a3a5-44e308dbdc1f",
+        "fromTable": "TransactionMart FactTransaction",
+        "fromColumn": "Customer Key",
+        "toTable": "TransactionMart DimCustomer",
+        "toColumn": "Customer Key"
+      },
+      {
+        "name": "96f79383-36b5-4410-9665-b6fcbbee79e6",
+        "fromTable": "TransactionMart FactTransaction",
+        "fromColumn": "Supplier Key",
+        "toTable": "TransactionMart DimSupplier",
+        "toColumn": "Supplier Key"
+      },
+      {
+        "name": "aeba54d3-cdcf-4a62-9c1e-bf4b3e5d0b1f",
+        "fromTable": "TransactionMart FactTransaction",
+        "fromColumn": "Date Key",
+        "toTable": "TransactionMart DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "0409a1d7-324c-47bb-900f-f2e188b48958",
+        "fromTable": "TransactionMart FactTransaction",
+        "fromColumn": "Payment Method Key",
+        "toTable": "TransactionMart DimPaymentMethod",
+        "toColumn": "Payment Method Key"
+      },
+      {
+        "name": "3c07b83b-880b-4aed-b5f9-f8823179d892",
+        "fromTable": "TransactionMart FactTransaction",
+        "fromColumn": "Transaction Type Key",
+        "toTable": "TransactionMart DimTransactionType",
+        "toColumn": "Transaction Type Key"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
